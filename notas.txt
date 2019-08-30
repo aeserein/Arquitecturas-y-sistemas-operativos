@@ -1,0 +1,60 @@
+1969 - Unix de AT&T
+1977 - BSD de la universidad de Berkeley
+1983 - GNU de Stallman
+1987 - Minix de Tenenbaum
+
+1980 - IBM DOS de IBM
+1981 - MS DOS de Microsoft (fiasco de Gates)
+
+1984 - MAC OS original de Apple
+1990 - GNU Hurd
+1991 - Linux
+
+Las universidades suelen hacer ingeniería inversa de sistemas privados
+BSD pierde el litigio vs AT&T
+Los programas de BSD hacen lo mismo, pero el código es distinto al de Unix
+Concepto de sistemas operativos "Unix-like"
+
+Los programas trabajan modularmente
+Richard Stallman había hecho y/o modificado practicamente todas las funciones de GNU Linux
+Le faltaba la conexión con el hardware a nivel hardware
+Se requiere que algo funcione en cualquier hardware
+
+Minix de Tenenbaum
+
+La ventaja de tener software propietario es que se tiene control sobre el hardware
+MS DOS era compatible con IBM y con todas las máquinas compatibles con IBM (como Compact)
+MS DOS veía instalado con las máquinas cuando se compraban. La gente a veces lo sacaba para instalar un sistema libre
+Las máquinas que vienen con algo instalado dependen del software que está controlado centralmente.
+	-> Uno no es dueño del hardware hasta que le saca el software	
+	-> Ejemplo consolas de juegos
+
+Kernel = biblioteca que conoce el hardware a nivel hardware y crea una interfaz para el sistema operativo
+Hardware <||||> Kernel <||||> Software
+           ^		 ^
+      Desarrollo       Mientras
+      constante       use C anda
+      para cada      dónde y cómo sea
+   hardware que sale
+La parte de software se encarga de diseñar la funcionalidad
+Del kernel hacia la derecha -> Distribución de Linux. Mismo Linux con distintas cosas
+
+Linuxalt.com -> página de alternativas a programas de windows
+
+------------------------------------
+Comandos
+{    ,    }
+cp
+mv
+mkdir
+rmdir
+reset
+rm y rm -rf
+head
+tail
+head y tail con "-n" n=un numero cantidad de renglones
+touch	(timestamps)
+ln 	(link)
+md5sum	(encriptacion de una via, para checkear legitimidad)
+wc	(otro de encriptacion de una via)
+gpg	(encriptacion de doble via. PROBAR)
