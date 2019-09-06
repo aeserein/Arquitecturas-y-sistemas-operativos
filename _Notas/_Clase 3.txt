@@ -1,0 +1,9 @@
+----------------------------------------
+TP Web Cloud
+Traer VDI de Kali
+----------------------------------------
+
+Raspberry PI 3
+Computadora sin accesorios (disp input y output)
+Raspbian -> + distro que corre sobre Raspbian
+Ubuntu MATE
