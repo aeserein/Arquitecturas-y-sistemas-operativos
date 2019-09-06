@@ -1,4 +1,4 @@
---help		Ayuda para argumentos de cada comando
+﻿--help		Ayuda para argumentos de cada comando
 		[comando] --help
 
 man		Manual / Descripción completa
@@ -8,6 +8,8 @@ man		Manual / Descripción completa
 
 ./		Ejecutar
 		./[archivo]
+
+reset		Reset terminal
 
 cd		Change Directory
 
@@ -27,17 +29,23 @@ mv		Mueve y renombra archivos
 
 rm		Remove
 		rm [archivo]
-		rm -r [carpeta]		
+		rm -r [carpeta]		Recursive
+		rm -rf	[carpeta]	Recursive, force	
 
 mkdir		Make directory
-
 rmdir		Remove directory
+ln		Link
+
 
 cat		Muestra contenido de archivo
-		cat [archivo]
-
 less		Igual que cat, pero con la pantalla limpia
-		less [archivo]
+more		Igual que less, pero con la pantalla limpia
+
+
+head		Imprime primeras 10 lineas
+		head -n [archivo]	n=cantidad de lineas
+tail		Igual que head, pero ultimas lineas
+
 
 grep		Toma solo una parte de algo
 		cat [archivo] | grep [string]
@@ -59,6 +67,36 @@ chmod		Cambiar permisos de archivos
 		chmod +x [archivo]	Executable
 		chmod +r [archivo]	Readable
 		chmod 777 [archivo]	Modo global
+
+uname		Qué sistema
+uname -r	Distro
+uname -m	Arquitectura del kernel
+uptime
+hostname
+hostname -i	ip
+last		Registro de logins
+
+date		Fecha y hora
+cal		Calendario
+time		Timer para la tarea a hacer
+whoami
+w		Qué usuario está en qué consola
+who		idem
+finger -s [user]idem, pero para un usuario
+
+echo $USER	Devuelve usuario
+echo $HOME	Home del usuario
+echo $PWD	pwd
+echo $HOSTNAME	hostname
+echo $SHELL
+
+------------------------------------------------------------------
+
+carpeta /proc
+cat /proc/*
+cat /proc/cpuinfo
+cat /proc/meminfo
+cat /proc/interrupts
 
 ------------------------------------------------------------------
 

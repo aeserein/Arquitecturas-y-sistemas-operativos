@@ -1,9 +1,40 @@
 ----------------------------------------
 TP Web Cloud
-Traer VDI de Kali
+Traer VDI
 ----------------------------------------
 
 Raspberry PI 3
 Computadora sin accesorios (disp input y output)
 Raspbian -> + distro que corre sobre Raspbian
 Ubuntu MATE
+----------------------------------------
+
+Comandos
+
+uname		Qué sistema
+uname -r	Distro
+uname -m	Arquitectura del kernel
+uptime
+hostname
+hostname -i	ip
+last		Registro de logins
+
+date		Fecha y hora
+cal		Calendario
+time		Timer para la tarea a hacer
+whoami
+w		Qué usuario está en qué consola
+who		idem
+finger -s [user]idem, pero para un usuario
+
+echo $USER	Devuelve usuario
+echo $HOME	Home del usuario
+echo $PWD	pwd
+echo $HOSTNAME	hostname
+echo $SHELL
+
+carpeta /proc
+cat /proc/*
+cat /proc/cpuinfo
+cat /proc/meminfo
+cat /proc/interrupts
