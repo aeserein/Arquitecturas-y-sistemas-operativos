@@ -1,0 +1,68 @@
+--help		Ayuda para argumentos de cada comando
+		[comando] --help
+
+man		Manual / Descripción completa
+		man [comando]
+
+------------------------------------------------------------------
+
+./		Ejecutar
+		./[archivo]
+
+cd		Change Directory
+
+ls		Listing
+ls /xxx		Listing de una carpeta
+ls -l		Listing detallado
+ls -a		Listing c/ archivos ocultos
+
+pwd		Print working directory
+
+cp		Copiar archivo
+		cp [archivo] [ubicación desde la raiz]
+		-v Devuelve feedback
+
+mv		Mueve y renombra archivos
+		mv [archivo] [nuevo nombre y/o ubicación]
+
+rm		Remove
+		rm [archivo]
+		rm -r [carpeta]		
+
+mkdir		Make directory
+
+rmdir		Remove directory
+
+cat		Muestra contenido de archivo
+		cat [archivo]
+
+less		Igual que cat, pero con la pantalla limpia
+		less [archivo]
+
+grep		Toma solo una parte de algo
+		cat [archivo] | grep [string]
+		Muestra los renglones de [archivo] que incluyan [string]
+
+echo		Escribe algo en un canal de output
+		echo "string" escribe 'string' en la pantalla
+		echo "string" > [archivo] escribe 'string' en el archivo
+
+touch		Crea archivo/s
+		touch [archivo] [archivo] [archivo]...
+
+chown		Change owner
+		En Kali solo tengo usuario root, así que no tiene sentido
+		chown root:root [archivo]
+
+chmod		Cambiar permisos de archivos
+		chmod +w [archivo]	Writable
+		chmod +x [archivo]	Executable
+		chmod +r [archivo]	Readable
+		chmod 777 [archivo]	Modo global
+
+------------------------------------------------------------------
+
+-y		Responder sí a preguntas
+-i		Ignorar mayúsculas y minúsculas
+-r		Recursivo
+-f		Forzar

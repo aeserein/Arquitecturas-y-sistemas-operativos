@@ -1,0 +1,119 @@
+﻿[ contraseña ]
+
+
+
+
+
+
+
+
+pub   4096R/24D1A667 2019-09-01
+
+      Huella de clave = CADF BAD8 6662 876E B18A  95A8 EB97 C79E 24D1 A667
+
+uid                  Álvaro Serein (-) <ae.serein@gmail.com>
+
+sub   4096R/D78D09A6 2019-09-01
+
+
+
+
+
+
+[yo@alvaro-fedora .gnupg]$ gpg --list-keys
+
+/home/yo/.gnupg/pubring.gpg
+
+--------------------------------
+
+pub   4096R/24D1A667 2019-09-01
+
+uid                  Álvaro Serein (-) <ae.serein@gmail.com>
+
+sub   4096R/D78D09A6 2019-09-01
+
+
+
+[yo@alvaro-fedora .gnupg]$ gpg --list-secret-keys
+/home/yo/.gnupg/secring.gpg
+
+--------------------------------
+
+sec   4096R/24D1A667 2019-09-01
+
+uid                  Álvaro Serein (-) <ae.serein@gmail.com>
+
+ssb   4096R/D78D09A6 2019-09-01
+
+
+
+
+
+
+
+
+.
+
+├── Descargas
+
+├── Documentos
+
+├── Escritorio
+
+├── Imágenes
+
+├── Música
+
+├── Plantillas
+
+├── Práctica
+
+│   └── historial.txt
+
+├── Público
+
+└── Vídeos
+
+
+
+9 directories, 1 file
+
+[yo@alvaro-fedora ~]$ gpg -e -r Práctica/historial.txt yo
+
+gpg: Práctica/historial.txt: omitido: clave pública no encontrada
+
+gpg: yo: encryption failed: clave pública no encontrada
+
+[yo@alvaro-fedora ~]$ gpg --list-public-keys 
+
+/home/yo/.gnupg/pubring.gpg
+
+--------------------------------
+
+pub   4096R/24D1A667 2019-09-01
+
+uid                  Álvaro Serein (-) <ae.serein@gmail.com>
+
+sub   4096R/D78D09A6 2019-09-01
+
+
+
+[yo@alvaro-fedora ~]$ ls .gnupg
+
+gpg.conf   pubring.gpg   random_seed  trustdb.gpg
+
+miKey.asc  pubring.gpg~  secring.gpg
+
+[yo@alvaro-fedora ~]$ gpg -i .gnupg/miKey.asc
+
+pub  4096R/24D1A667 2019-09-01 Álvaro Serein (-) <ae.serein@gmail.com>
+
+sub  4096R/D78D09A6 2019-09-01
+
+[yo@alvaro-fedora ~]$ gpg -e -r Práctica/historial.txt yo
+gpg: Práctica/historial.txt: omitido: clave pública no encontrada
+
+gpg: yo: encryption failed: clave pública no encontrada
+
+[yo@alvaro-fedora ~]$ 
+
