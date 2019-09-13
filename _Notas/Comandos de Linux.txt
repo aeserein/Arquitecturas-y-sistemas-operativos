@@ -100,6 +100,17 @@ cat /proc/interrupts
 
 ------------------------------------------------------------------
 
+fdisk
+
+mkfs		Make file system
+mkfs.[distintos tipos]
+
+lsblk		List blocks
+	-f	Muestra extension (ej: ext3)
+	-m	Muestra permisos y monturas
+
+------------------------------------------------------------------
+
 -y		Responder sí a preguntas
 -i		Ignorar mayúsculas y minúsculas
 -r		Recursivo

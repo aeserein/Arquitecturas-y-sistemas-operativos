@@ -1,0 +1,53 @@
+Características de la virtualizacion
+
+Fidelidad - Entorno creado por el hipervisor debe ser identico al de una maquina fisica
+Aislamiento - El hipervisor ebe tener control completo de la maquina que esta virtualizando y debe aislar la misma del sistema que la esta ejecutando. Si se cuelga la maquina virtual, la cierro y windows sigue igual.
+Rendimiento - No debe haber, o en su -------
+
+Ventajas
+
+Disminuye cantidad de servidores físicos. Esto trae como consecuencia una reduccion directa de los costos de mantenimietno de hardware
+Al implementar virtualizacion se disminuye el espacio fisico del centro de computos
+Al tener cada aplicacion dentro de su propio "servidor virtual" puede evitar que una aplicacion impacte otras aplicaciones al momento de realizar mejoras o cambios
+Vender tiempo de uso de servidores. Estos ejecutan maquinas virtuales para quienes compran el tiempo de proceso.
+
+¿Que es el hipervisor?
+
+El hipervisor, anteriormente llamado monitor de maquina virtual, es una capa de software que reside entre la máquina virtual y el hardware del host.
+El hipervisor se encargara de manejar las interacciones entre las maquinas virutales y el hardware del host.
+
+Hipervisor tipo 1.
+
+Es aquel que se ejecuta directamente sobre el hardware del host, sin un sistema operativo en el medio. Al no tener un sistema operativo como intermediario, el hipervisor tipo 1 puede tener una interaccion directa con el hardware.
+
+hipervisor tipo 2.
+
+Basicamente una aplicacion que se ejecuta sobre el sistema operativo. El sistema operativo del host hara de intermediario, manejando las interacciones entre la maquina virtual y el hardware.
+
+Softwares disponibles para virtualizacion.
+
+Virtualbox, vmware, xen, kvm, openVZ
+
+-----------------------------------------------------
+
+Discos -> /dev/sd[letra] (sda, sdb, sdc, etc) - Para discos SATA
+
+Crear particion. Asumiendo disco es /dev/sdb
+
+- fdisk /dev/sdb
+- Seguir instrucciones
+
+Tamaño "+4G" (para 4 gigas)
+
+mkfs - Make file system
+Para windows mkfs.msdos o mkfs.vfat
+Para linux mkfs.ex2, mkfs.ex3, mkfs.ex4, mkfs.minix
+
+- mkfs.ext3 [/dev/sdb1]
+
+Se usa ext3 o ext4
+Si sdb es un disco, sdb1, sb2, sb3... son las particiones de ese disco
+Se puede ejecutar el mismo comando sobre una particion ya formateada para cambiar el formato
+
+- Crear una carpeta "Disco1" en Home
+- mount /dev/sdb1 /home/[yo]/Disco1
