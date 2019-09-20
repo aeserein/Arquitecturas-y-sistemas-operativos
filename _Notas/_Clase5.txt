@@ -1,0 +1,27 @@
+20/4
+
+lenguajes de programacion
+elementos fundamentales de los sistemas operativos
+distribuciones y licencias de software
+virtualizacion
+estructura de subdirectorios de linux
+repositorios y paquetes
+
+parte practica
+crear disco, particiones, montar carpetas, crear archivos, modificarlos, copiarlos, listarlos
+
+
+---------------------
+
+archios dinamicos y estaticos
+archivos compartidos y no compartidos
+archivos comunes y especiales
+
+Nombres	Case sensitive
+	Caracteres permitidos dependen de los caracteres especiales de los comandos
+	Problemas si se trabaja en windows y se sube a un server con linux
+
+ln comun y simbolico
+	Comúm crea un inodo nuevo
+
+fstab Para montar al principio un disco
