@@ -1,9 +1,9 @@
 20/4
 
-lenguajes de programacion
-elementos fundamentales de los sistemas operativos
-distribuciones y licencias de software
-virtualizacion
+	lenguajes de programacion
+	elementos fundamentales de los sistemas operativos
+	distribuciones y licencias de software
+	virtualizacion
 estructura de subdirectorios de linux
 repositorios y paquetes
 

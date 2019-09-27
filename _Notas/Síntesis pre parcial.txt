@@ -1,0 +1,288 @@
+﻿	LENGUAJES DE PROGRAMACIÓN
+
+Definición de lenguaje de programación
+"Protolenguaje" = Cableado lógico
+Comienzo de los '50 - 1ª generación de lenguajes - Finales de 1ª generación de computadoras
+	Tarjetas perforadas
+	Lenguaje de máquina, sin abstracción.
+	Se ejecutaba directo sobre el hardware.
+1953-1962 - 2ª generación de lenguajes - 2ª generación de computadoras
+	Lenguajes assembly
+Fines de los '50 - 3ª generación de lenguajes
+	C, COBOL, BASIC
+	Y lenguajes más modernos (Java, C++, Python, Javascript, etc.)
+	Abstracción del hardware
+
+	CLASIFICACIÓN - Lenguajes de alto nivel y lenguajes de bajo nivel
+
+Bajo nivel = Lenguaje de máquina y assembly
+	Lenguaje de máquina = Combinación de números, 0 abstracción
+	Lenguaje assembly = Primer nivel de abstracción, acciones directas sobre el micro y la memoria. Estas instrucciones luego se traducen a lenguaje de máquina por el assembler.
+	Lenguaje assembly -> Assembler -> Lenguaje de máquina
+Alto nivel = Abstracción del hardware del dispositivo
+	Disintos niveles de abstracción del hardware
+	C -> C# -> Java - Javascript
+
+	CLASIFICACIÓN - Lenguajes interpretados y compilados
+
+Necesidad de un "traductor" de los lenguajes de alto nivel
+Lenguajes compilados = Código del lenguaje -> Compilador -> Código en LdM
+Lenguajes interpretados = Código del lenguaje -> Intérprete -> Ejecutar instrucciones
+
+Lenguajes compilados
+	El compilador toma el código fuente y crea archivos con código en LdM
+	Ventaja velocidad de ejecución, por ser ejecución directa
+	Ej: C, C++, C#, Basic
+	Desventaja de necesitar compilar cada vez que se cambia el código fuente
+	Dependen de la arquitectura de la máquina en algunos detalles. (Ejemplo funcion(a, ++a, ++a))
+
+Lenguajes interpretados
+	No corre el programa en sí, sino un intérprete que ejecuta el código
+	Los interpretados corren mediante un intérprete. El intérprete corre sobre la máquina.
+	El intérprete lee el código según esté diseñado y ejecuta
+	Desventaja de velocidad de ejecución por ese paso extra.
+	Ventaja de ser más simples y cómodas de modificar (Es solo abrir el archivo fuente, modificarlo y guardar los cambios)
+	Ej: PHP, Ruby, JavaScript, Python
+
+	CLASIFICACIÓN - Paradigma de programación
+
+Clasificación según el diseño y la funcionalidad del lenguaje
+Top-down -> Procedural -> De lo principal a los detalles
+Bottom-up -> Objetos -> De los objetos al programa mayor que los usa
+
+
+
+
+-----------------------------------
+
+
+
+
+	ELEMENTOS FUNDAMENTALES DE LOS SISTEMAS OPERATIVOS
+
+Provee de funcionalidad a la computadora permitiendo la interacción entre el usuario y el hardware
+
+Kernel
+	Nucleo del S.O. -> Manejo de funciones de bajo nivel
+	Ej: Asignar, ubicar, modificar, remover cosas en memoria
+	    Asignar tiempo de CPU a un proceso
+	    Proveer interfaz
+	    Posibilitar interacción entre programas
+	    Funcionalidad de redes
+	Cada S.O. tiene su propio kernel diseñado a su manera
+	No se manipula directamente
+
+Diferencias entre S.O., además del kernel
+	Línea de comandos (Ej: sh, bash, c shell)
+	Interfaz - bajada al usuario de la funcionalidad de la máquina.
+	Programas incluidos (Ej: calculadora, calendario, editor de texto, explorador, etc.)
+	Librerías para los programas que van a correr en el S.O.
+
+Interfaz gráfica 
+	Para cosas básicas por la facilidad del cursor y el buen diseño de interfaz basado en que tiene que ser intuitivo para el usuario
+	Si bien Windows y MacOS tienen una interfaz (muy modificable, pero una en fin), en Linux hay varias y depende de la distribución (Ej: Gnome, KDE, XFCE, Unity)
+
+Consola
+	Para cosas más específicas y menos comunes. (Ej: crear 1000 usuarios en un sistema, modificar particiones de un disco)
+	La consola es muy fácil de automatizar (Ej: scripts, cronjobs)
+	La consola se usa en servidores
+
+	GNU Linux vs Unix
+
+Unix es un S.O. privado hecho por AT&T en 1969.
+	Primero solo lenguaje assembly, luego se paso a C para correr en muchas máquinas
+	Cuando se pasó a C, se posibilitó leer el código fuente para estudiarlo.
+	De ahí salió BSD de la U. de Berkeley en 1977
+	BSD -> Basado en Unix System V o Unix 6
+	Juicio
+	Richard Stallman empieza a crear la librería GNU que conformaría un S.O, copiando de la de Unix pero sin usar su código
+	A GNU le falta un kernel -> kernel Linux de Linus Torvalds
+	Resultado -> GNU/Linux (que se le dice Linux)
+	Categoría "Unix-like" en lugar de "Unix"
+
+	Diferencias entre GNU/Linux y los demás
+
+Gratis (la mayoría) vs comercializados
+Abiertos vs cerrados
+Muchas versiones para distintos usos vs una sola versión
+Hegemonía en servers vs hegemonía en usuarios
+Accesibilidad a drivers y actualización para dispositivos viejos
+Diferencia de popularidad orienta el diseño de dispositivos
+Disponibilidad de aplicaciones
+Librerías que posibilitan correr programas de Windows en Linux
+Windows tiene la interfaz como gran punto fuerte, Linux tardó más en emparejarse
+Mejor seguridad en Linux por diseño de arquitectura
+
+	Distribución
+
+Conjunto de programas que hacen al S.O. y su configuración
+
+
+
+
+-----------------------------------
+
+
+
+
+	DISTRIBUCIONES Y LICENCIAS DE SOFTWARE
+
+Entre '50 y '60 el código era libre porque se usaba para estudiar y porque como era assembly se tenía que modificar para correr en una máquina o la otra.
+Se publicaba en revistas
+Se trabajaba entre grupos
+Idea de que cualquier aplicación que no tenga el código a la vista puede contener comportamientos deshonestos
+
+Fines de '60 y principios de '70 -> Advenimiento de lenguajes de alto nivel -> Se empezó a trabajar con código cerrado y comercial
+Lucha entre licencias privadas y distribución pirata -> Empeoró a partir de los 90 con el auge del internet
+
+	Tipos de licencias
+
+Propiedad intelectual y código abierto
+	La propiedad intelectual requiere permiso para poder copiarse o modificarse
+	El código abierto permite acceder, modificar y utilizar como sea, pero no se pueden comercializar porque nadie compra lo que es gratis
+Free Software Fundation, Open Source Initiative, Creative Commons
+
+	Copyright
+
+Definición de copyright
+Diferencias entre países, pero acuerdo entre ellos para respetar la legislación exterior
+Inadaptabilidad de la definición de copyright para el ámbito de la computación
+	Copiar para instalar
+	Copiar al pasar a memoria
+	Copiar al swap
+	Copia por backup
+Esto antes calificaría como ilegal, pero las leyes se modificaron
+Los programas vienen con licencias que definen derechos sobre el programa y/o su código (código abierto o cerrado)
+
+	Free Software Fundation
+
+1983 - Richard Stallman copia Unix pero con funciones propias y en código abierto
+Crea el movimiento GNU y la Free Software Fundation
+Filosofía "copyleft"
+
+Software libre
+	Software con código expuesto y sin restricciones
+	El software libre se puede vender
+		Red Hat comercializa el sistema operativo Red Hat, que es gratis y se puede manipular como cualquier otro abierto, pero sin el soporte de Red Hat
+
+Libertades de software de la Free Software Foundation
+	Usar el código para cualquier propósito
+	Examinarlo y modificarlo
+	Redistribuirlo tal cual está
+	Modificarlo y redistribuirlo
+Hay versiones de Linux que tienen software propietario
+
+	Licencia GPL
+
+GPL = General Public License
+Documento legal con las libertades de los programas según la Free Software Foundation
+Incluye las 4 libertades
+GPL 2 y GPL 3
+Lo que es GPL siempre tiene que seguir siendo GPL
+Diferencias entre GPL 2 y 3
+	GPL 3 es más flexible para mezclar código abierto con propietario
+	GPL 3 viene con cláusulas para regular que las restricciones DRM no afecten la licencia de GPL
+	GPL 3 no permite combinar código abierto con código cerrado y patentarlo en un paquete propietario
+	GPL 3 dice que no es obligatorio mostrar un código fuente a alguien si no es mi cliente al cual le mandé una copia de mi programa
+
+
+
+
+-----------------------------------
+
+
+
+
+	VIRTUALIZACIÓN
+
+Virtualización = abstracción de componentes físicos en componentes lógicos
+Se puede virtualizar componentes separados (Ej: PowerISO) o computadoras enteras (Ej: VMWare)
+Primera virtualización en la década del '60
+
+Hipervisor
+	Monitor de la máquina virtual que administra cada componente virtualizado en otra máquina
+	3 Características (Fidelidad, Aislamiento, Rendimiento)
+	Capa entre el hardware físico y la máquina virtual
+	Evita caos entre los S.O. (Ej. de tablas de ubicaciones de memoria)
+	Hipervisor tipo 1 se comunica con el hardware sin el S.O. como intermediario. Es más rápido, más económico y más seguro.
+	Hipervisor tipo 2 usa el S.O. de intermediario. Es más lento pero no requiere drivers porque no se comunica con el hardware. Es más accesible
+
+
+Uso de la virtualización
+	Crecimiento de la informática y el internet demandó muchas computadoras que cuestan plata y requieren espacio y mantenimiento
+	Virtualizar permite tener muchas computadoras en una sola
+	Se usa mucho en servers, pero también se puede virtualizar en una computadora casera
+
+
+
+
+-----------------------------------
+
+
+
+
+	ESTRUCTURA DE DIRECTORIOS
+
+Estandar FHS (Filesystem Hierarchy Standard) para estandarizar ubicaciones para usuarios y desarrolladores
+	No lo siguen al 100%, pero las diferencias son muy chicas
+Directorio estático o dinámico
+	Estático = Directorios de binarios, bibliotecas, documentos que no cambian salvo que los cambie manualmente el administrador
+	Dinámicos = Directorios de archivos no estáticos, archivos de lectura-escritura
+Directorio compartido o restringido
+	Compartido = Archivos que pueden usarse en otro sistema
+	Restringido = Archivos que no pueden compartirse
+
+Todo parte de root /
+No hay unidades para cada disco físico, sino que se montan en el mismo arbol único
+
+	Directorios importantes
+
+/ -> Punto de partida
+/bin -> Programas esenciales (comandos)
+/sbin -> Programas y comandos de administración (superbin?)
+/lib -> Libreria para los programas
+/boot -> Archivos que usa para bootear
+/dev -> Dispositivos
+/etc -> Configuración
+/home -> Directorio principal de cada usuario
+/mnt -> Filesystems montados temporalmente
+/media -> Dispositivos "de medios" montados
+/opt -> Paquetes de aplicaciones estáticas
+/proc -> Registros de sucesos y estados del procesador
+/tmp -> Temporales
+/srv -> Datos que la máquina da como server
+/usr -> Datos compartidos (Librerías, comandos, configuraciones)
+/var -> Archivos variables
+
+	Archivos
+
+Casi todo es un archivo (programas, datos, multimedia, dispositivos físicos, sockets, pipes, etc.)
+Archivos directorio, comunes y especiales
+No usa/reconoce extensiones
+Nombre hasta 255 caracteres, distingue mayúsculas de minúsculas, restringidos signos de la consola
+Paths/rutas -> Absolutas (desde /) o relativas (desde pwd)
+Inodo (describir inodo) y enlaces (links)
+Enlace duro y enlace simbólico
+
+	Puntos de montaje
+
+Se puede montar un archivo especial en una ubicación dentro del file system
+Si se monta algo en un directorio donde hay archivos, estos quedan ocultos
+Se debe montar cada vez que se pone el dispositivo o editar /etc/fstab para que se monte desde el arranque
+Comando mount
+Comando tar (empaquetar archivos)
+
+
+
+
+-----------------------------------
+
+
+
+
+	REPOSITORIOS Y PAQUETES
+
+Un repositorio es un servidor FTP o HTTP donde se guardan paquetes.
+Los paquetes pueden incluir cualquier cosa, no solo programas.
+3 tipos de paquetes (estable, prueba, inestable)
+[Lista de paquetes]
