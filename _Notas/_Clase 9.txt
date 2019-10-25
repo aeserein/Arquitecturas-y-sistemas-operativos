@@ -1,0 +1,85 @@
+BIOS
+
+Cada dispositivo que enciende tiene que hacer una verificación de sus componentes.
+Si algo no funciona, la madre hace la chicharra.
+Una vez que funciona, empieza el proceso de software.
+El primero es el "Sistema básico de entrada y salida" (BIOS) - Basic Input Output System
+La electrónica es específica de la madre.
+El BIOS es un sistema para dar acceso a cada periférico.
+Es el primer proceso que se carga, luego carga el sistema operativo.
+
+
+BIOS -> Bootloader
+
+Se elge el sistema operativo que se corre, estos pueden tener formatos distintos. Esto está en el centro del HDD
+Solo se puede tener 4 particiones primarias por una cuestión de espacio.
+El bootloader va en la partición marcada como boot.
+Uno puede poner un programa que apunte a distintas secciones del disco y correr lo que haya ahí. Cada SO se instala en una de esas particiones extendidas (no primarias)
+El bootloader carga ese gestor de arranque, que se define desde cualquier SO previamente.
+
+
+BIOS -> Bootloader -> Kernel
+
+El kernel es una interfaz del SO para el hardware.
+Interactúa con el procesador y las memorias
+Pone en memoria todas las estructuras de control del sistema operativo
+Se descomprime, se carga en memoria y corre init (PID 0)
+
+
+BIOS -> Bootloader -> Kernel -> Init
+
+Init controla a todos los demás procesos
+Init se transforma en swapper
+PID 1 es init
+
+--------------------------------------------------------------------------------------------
+
+Pongo un programa a correr
+Lo veo en top
+Lo veo en ps 
+Lo veo en jobs (jobs muestra los procesos en esa consola)
+
+fg %[id de jobs]
+
+fg me devuelve el proceso en el estado en que está
+Concepto de promesa -> Mandar un proceso a correr y recibirlo con otro proceso
+
+ps -ef muestra
+	UID -> User ID
+	PID -> Process ID
+	PPID -> Parent process ID
+	STIME -> Start time?
+	TTY -> Terminal donde corre
+	TIME -> Tiempo corriendo en el procesador
+	CMD -> Comando
+
+Proceso swappeado y proceso zombie
+Proceso zombie -> Proceso desreferenciado porque el proceso padre murió
+	       -> La memoria del proceso zombie está tomada pero no se puede acceder y no hace nada
+Proceso parado -> Proceso suspendido
+	       -> No se puede ver hasta que reciba una signal
+	       -> Cuando uso ctrl+z, fg emula una señal
+
+--------------------------------------------------------------------------------------------
+
+
+Control + Z -> Poner un proceso a correr asincrónicamente
+
+fg %[id de jobs]	- Pongo un proceso en primer plano
+
+ps (process snapshot)
+ps -ef
+	e -> Todos los procesos
+	f -> Formato
+ps -ef | [nombre del proceso a buscar] -> Para buscar un proceso específico
+
+grep [key] [archivo]
+	-i	-> Ignora case
+	-color	-> Resalta key en color
+	-n	-> Pone el número de línea para cada línea
+	-b	-> Excluye key
+	
+	key$	-> $ representa final de línea
+	^key	-> Al comienzo de línea
+
+Grep para texto literal. Próxima clase patrones dentro de texto (ej: gre
