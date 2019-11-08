@@ -1,0 +1,36 @@
+Protocolos
+
+Necesidad de protocolos porque las máquinas tienen arquitecturas diferentes.
+También deben funcionar a futuro.
+Encriptación por una clave.
+	-> Puedo verificar si está bien encriptado
+	-> No puedo desencriptarlo
+	-> Solo el destinatario puede
+HTTP, FTP y SSH
+
+HTTP
+	POST -> Escribir encriptado
+	GET -> Pedir datos
+
+HTML
+<tag>Dato</fin de tag>
+Código de cliente y código de servidor
+Dentro de un mismo archivo hay código de servidor y código del cliente
+Los tags permiten escribir código en otros lenguajes
+
+htdocs = hypertext docs
+Hipertexto = texto que puede correr cosas
+
+------------------------------------------------------
+
+Abri Xampp en Windows
+Creé carpeta "sistemasoperativos" en C:/xampp/htdocs
+Creé un archivo "index.php"
+	-> Código "<h1>Hola</h1>"
+	-> Todas las páginas que uno abre muestran un index.php o index.html
+
+------------------------------------------------------
+
+22 PRUEBA
+29 OWNCLOUD
+6 RECUPERATORIO
