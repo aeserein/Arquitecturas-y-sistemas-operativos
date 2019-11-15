@@ -1,0 +1,2 @@
+inurl:"/wp-content" site=*.gob.ar
+site:*.gob.ar inurl:public_html
