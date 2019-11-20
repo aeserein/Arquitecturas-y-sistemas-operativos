@@ -140,7 +140,7 @@ Lucha entre licencias privadas y distribución pirata -> Empeoró a partir de lo
 Propiedad intelectual y código abierto
 	La propiedad intelectual requiere permiso para poder copiarse o modificarse
 	El código abierto permite acceder, modificar y utilizar como sea, pero no se pueden comercializar porque nadie compra lo que es gratis
-Free Software Fundation, Open Source Initiative, Creative Commons
+Free Software Foundation, Open Source Initiative, Creative Commons
 
 	Copyright
 
@@ -286,3 +286,45 @@ Un repositorio es un servidor FTP o HTTP donde se guardan paquetes.
 Los paquetes pueden incluir cualquier cosa, no solo programas.
 3 tipos de paquetes (estable, prueba, inestable)
 [Lista de paquetes]
+
+
+
+
+-----------------------------------
+
+
+
+
+Lenguajes
+	Generaciones
+	3 clasificaciones
+
+Sistemas operativos
+	Kernel
+	Características definitorias
+	Interfaz y consola
+	Linux vs Unix
+	Diferencias Unix y Propietarios
+
+Licencias
+	De assembly libre a C propietario
+	Tipos de licencias
+	Copyright y conflictos
+	Free Software Foundation
+	GPL 2 y 3
+
+Virtualización
+	Hipervisor
+	3 características
+	Tipos
+	Usos
+
+Directorios
+	FHS
+	Explicación
+	Directorios estáticos y dinamicos
+	Directorios compartidos y restringidos
+	Directorios importantes
+	Archivos de directorio, comunes y especiales
+	Inodos y links
+	Puntos de montaje

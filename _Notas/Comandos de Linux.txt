@@ -59,8 +59,6 @@ touch		Crea archivo/s
 		touch [archivo] [archivo] [archivo]...
 
 chown		Change owner
-		En Kali solo tengo usuario root, así que no tiene sentido
-		chown root:root [archivo]
 
 chmod		Cambiar permisos de archivos
 		chmod +w [archivo]	Writable
@@ -73,7 +71,7 @@ uname -r	Distro
 uname -m	Arquitectura del kernel
 uptime
 hostname
-hostname -i	ip
+hostname -I	ip
 last		Registro de logins
 
 date		Fecha y hora
