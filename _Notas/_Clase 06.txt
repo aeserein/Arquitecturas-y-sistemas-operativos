@@ -1,0 +1,65 @@
+Memtest
+ - Registros CPU
+
+Micros baratos de pocos registros para cosas como Arduino y Raspberry
+Micros caros y rapidos, que resistan muchisimas lecturas y escrituras para servidores y computadoras grandes
+Lectura adyacente en memoria
+Cacheo de variables que se consultan en un servidor para no tener que consultar de nuevo
+
+Caro y volátil
+ - Cache L1 - Viene en el microprocesador, más rapido
+ - Cache L2 - Sobre la madre
+ - Cache L3 - Sobre la madre
+ - RAM
+--------------------- Barrera de mecanico a energía
+ - Disco
+Barato y estable
+
+Especificaciones de Caché definen el rendimiento de un procesador
+Cada nivel cachea lo que se lee.
+Busca en Cache L1, si no está, busca en Cache L2, si no está busca en L3, sino en la RAM
+
+Lectura de pulsos -> Conversión a binario -> escritura en disco
+
+Codigo original -> MSIL (Microsoft Intermediate Language) -> Binario
+
+fdisk -> escritura sobre el centro del disco. Tamaño de palabras y particiones
+El disco tiene la tabla de particiones en el centro con espacio para cuatro punteros.
+
+-------------------------------------------------------------------
+
+Raid 1 y Raid 0
+
+Raid 1 (Un backup hecho automáticamente por hardware)
+
+1 <---> 1
+2	2
+3	3
+4	4
+
+Raid 0 (Guarda de a partes)
+
+1 <---> 2
+3	4
+6	5
+
+Raid 10 -> Raid 0 con raids 1 anidados
+Raid 01 -> Raid 1 con raids 0 anidados
+
+--------------------------------------------------------------------
+
+LVM
+Crear particiones físicas y asignar dirección lógica
+
+--------------------------------------------------------------------
+
+Comandos para ver la memoria
+
+free -m
+Carpeta /proc
+vmstat -s
+dmidecode	- Deuelve datos sobre cualquier componente
+dmidecode --type memory
+top		- Devuelve los procesos activos
+htop		- top pero más cheto
+psouts

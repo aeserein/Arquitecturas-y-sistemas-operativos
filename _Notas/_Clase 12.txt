@@ -1,0 +1,17 @@
+Google
+inurl:"/wp-content" site=*.gob.ar	-> Contenido WordPress
+site:*.gob.ar inurl:public_html
+intitle:axis intitle:"video server"	-> Manuales de cámaras web
+inurl:/view.shtml			-> Ver cámaras abiertas
+site:*.com ext:sql
+
+www.exploit-db.com			-> Vulnerabilidades de bases de datos antiguas
+
+ARP (Address Resolution Protocol)
+Tomar (cortar) el lugar de una máquina en una red privada
+
+SQL injection
+Modificar datos ingresados para ejecutar comandos en una base de datos
+sqlmap.org		-> Programa para automatizar la detección de vulnerabilidades SQL
+
+OSINT -> Búsqueda de personas en sitios públicos

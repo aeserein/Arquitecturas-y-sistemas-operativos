@@ -1,0 +1,55 @@
+Todos los directorios empiezan con d en los permisos
+	Ej: drwxr-xr-x
+Para archivo la d es un guión
+	Ej: -rw-rw-r--
+
+[dueño][grupo/s del dueño][los demás]
+[read - write - execute]
+
+Crear usuario
+useradd [nombre]
+passwd [nombre] -> pide la contraseña por stdin
+
+Todos los usuarios tienen grupo. Si no tiene grupo, el grupo es el mismo usuario.
+Los datos en /etc/shadow no son descriptables
+
+Se cambia los permisos de la carpeta para que un usuario no pueda ver su contenido
+Se pone un . al principio de un nombre del archivo para que sea oculto
+
+
+-----------------------------------------------
+
+Comandos
+
+useradd [nombre]	- Agregar usuario
+	-m -> Crea home por defecto (/home/[nombre])
+	-d -> Crea home tomando parámetro (-d [path])
+	-G -> Asigna a grupo por nombre
+	-g -> Asigna a grupo por gid
+	-c -> Comentario (-c "Vote por El Donaldo")
+passwd [nombre]		- Asignar contraseña
+userdel [nombre]	- Borrar usuario
+login [nombre]		- Loguear como [nombre], requiere sudo
+logout			- Desloguear
+groups			- Lista los grupos en el que está el usuario
+usermod			- Modificar usuario, recibe los mismos comandos que useradd
+useradd [nombre] && sleep 15m && usermod --lock [nombre]
+id			- Devuelve todos los id del usuario
+chown			- Cambiar owner
+
+groupadd		- Agregar grupo
+groupmod		- Modificar grupo
+groupdel		- Borrar grupo
+gpasswd                 - Administrar /etc/group y /etc/shadow
+			- Trabaja con los parámetros de add, mod y del
+
+
+Archivos importantes
+
+/etc/passwd		- Listado de usuarios
+/etc/group		- Listado de grupos
+/etc/shadow		- Datos encriptados de usuarios, solo para su
+
+
+
+FECHAS		29 y 5 recuperatorio 1º y/o 2º parcial
