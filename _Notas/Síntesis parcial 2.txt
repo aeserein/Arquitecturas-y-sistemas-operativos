@@ -1,0 +1,188 @@
+6 - MEMORIA
+
+Concepto de volatilidad
+Memtest
+Micros caros y baratos
+Lectura adyacente
+
+Caro y volátil
+ - Cache L1 - Viene en el microprocesador, más rapido
+ - Cache L2 - Sobre la madre
+ - Cache L3 - Sobre la madre
+ - RAM
+--------------------- Barrera de mecanico a energía
+ - Disco
+Barato y estable
+
+Especificaciones de cache = rendimiento de procesador
+Cada nivel cachea lo que se lee
+Se busca en cada cache de arriba hacia abajo
+Pulsos -> binario -> a disco
+fdisk -> escritra sobre el centor del disco. 4 punteros
+
+Raid 1 = backup 1:1 por hardware
+Raid 0 = backup de a partes
+Raid 10 = Raid 0, con raids 1 anidados
+Raid 01 = Raid 1, con raids 0 anidados
+
+Comandos
+	$ free -m
+	Carpeta /proc
+	$ vmstat -s
+	$ dmidecode	- Deuelve datos sobre cualquier componente
+	$ dmidecode --type memory
+	$ top		- Devuelve los procesos activos
+	$ htop		- top pero más cheto
+	$ psouts
+
+------------------------------------------------------------------------------------
+
+7 - Procesos
+
+------------------------------------------------------------------------------------
+
+8 - LVM (Logical volume management)
+
+1. fdisk
+	Se hacen las particiones y se les pone tipo "Linux lvm" (8e)
+	Tengo las particiones en /dev
+
+2. pvcreate (phisical volume create)
+	$ pvcreate [particion]
+	$ pvs -> Ver los volumenes físicos
+	$ pvdisplay?
+
+3. vgcreate (volume group create)
+	$ vgcreate [vg-nombre] [particion]
+	Nombre descriptivo
+	$ pvs -> Ahora muestra los volúmenes asociados a cada partición
+	$ vgs -> Muestra los volumenes
+	$ vgdisplay?
+
+4. lvcreate (logical volume create)
+	lvcreate -l 100%Free -n [lv-nombre] [vg-nombre]
+	$ ls /dev/mapper
+	$ lvdisplay?
+
+5. mkfs.ext4
+	$ mkfs.ext4 /dev/mapper/[nombre]
+
+6. mount
+
+vgextend
+resize2fs -> Resize a filesystems desmontados (nivel 4)
+vgreduce
+vgrename
+lvrename
+
+Disco rígido -> Particiones -> Unidades físicas -> Unidades lógicas
+
+------------------------------------------------------------------------------------
+
+BIOS
+
+1. Bios
+Enciende -> verificación de hardware -> Chicharra si algo salió mal
+Corre BIOS (Basic IO System)
+Se localizan accesos a periféricos
+Es el primer proceso que se carga -> luego el SO
+
+2. Bios -> Bootloader
+Se elige el sistema operativo (o grub) en el centro del disco
+4 particiones primarias
+Bootloader = partición marcada como boot
+Grub -> programa que apunte a distintas secciones del disco y correr lo quue haya ahí (particiones extendidas, no primarias)
+El bootloader carga ese gestor de arranque
+
+3. Bios -> Bootloader -> Kernel
+Kernel = interfaz del SO para el hardware
+Interacción de componentes internos y periféricos
+Pone en memoria las estructuras de control del SO
+Carga en memoria el SO y corre init (PID 0)
+
+4. Bios -> Bootloader -> Kernel -> Init
+Init por debajo de todos los demás procesos
+Se transforma en swapper
+Init pasa a ser PID 1
+
+Promesa -> Mandar un proceso a correr y recibirlo con otro proceso
+Proceso zombie (desreferenciado, ocupando espacio, inaccesible)
+Proceso parado (suspendido, esperando señal o prioridad)
+
+------------------------------------------------------------------------------------
+
+10 - PERMISOS
+
+[r][w][x]
+[dueño][grupo][resto]
+Directorios empiezan con d (Ej: drwxr-xr-x)
+Para archivos, la d es un guión (Ej: -rw-rw-r--)
+
+Crear usuario
+	useradd [nombre]
+		-m	-> Crea home por defecto
+		-d 	-> Crea home tomando parámetro
+		-G	-> Asigna a grupo por nombre
+		-g	-> Asigna a grupo por gid
+		-c	-> Comentario (-c "Vote por El Donaldo")
+	passwd [nombre]	-> pide la contraseña por stdin
+	userdel [nombre]
+	usermod		-> Toma todos los comandos de useradd
+	useradd [nombre] && sleep 15m && usermod --lock [nombre]
+	login [nombre]
+	logout
+	exit
+	groupadd
+	groupmod
+	groupdel
+	gpasswd
+	chown		Cambiar owner
+	chmod		Cambiar permisos
+
+Todos los usuarios tienen grupo. Si no se le asigna, tiene un grupo que es el usuario mismo.
+/etc/passwd	-> Usuarios
+/etc/group	-> Grupos
+/etc/shadow	-> encriptado imposible de descriptar
+Permisos para otros usuarios
+. Al principio del nombre para ocultar en directorio
+
+------------------------------------------------------------------------------------
+
+11 - PROTOCOLOS
+
+Necesidad de protocolos
+Necesidad de que anden a futuro
+Encriptación por una clave
+	-> Puedo verificar si está bien encriptado
+	-> No puedo desencriptarlo
+	-> Solo el destinatario puede
+
+HTTP, FTP y SSH
+
+HTTP
+	POST -> Escribir, encriptado
+	GET  -> Pedir datos
+	<tag>Dato</fin de tag>
+	Código client side y server side
+		-> Pueden estar en el mismo archivo
+	Hipertexto -> Texto que puede correr cosas
+
+------------------------------------------------------------------------------------
+
+12 - SEGURIDAD
+	
+Operadores de Gogle
+exploit-db.com		Vulnerabilidades en versiones de db viejas
+ARP (Adress Resolution Protocol)
+SQL Injection		Correr comandos mediante datos ingresados
+sqlmap.org		Programa para detectar vulnerabilidades SQL
+OSINT			Búsqueda de personas en sitios públicos
+
+------------------------------------------------------------------------------------
+
+X - GITHUB
+
+1 - Colaboradores
+2 - Fetch + pull + push para actualizar repositorios forkeados a lo que actualiza el original
+3 - Branch y merge. Crear y mezclar dentro del mismo repositorio
+4 - merge en forma de Y
