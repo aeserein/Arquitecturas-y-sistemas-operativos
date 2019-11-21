@@ -50,6 +50,12 @@ tail		Igual que head, pero ultimas lineas
 grep		Toma solo una parte de algo
 		cat [archivo] | grep [string]
 		Muestra los renglones de [archivo] que incluyan [string]
+	-i	Ignora case
+	-color	Resalta key en color
+	-n	Pone el número de línea en cada línea
+	-b	En vez de devolver por key, excluye key y devuelve todo lo demás
+	key$	$ = final de linea
+	^key	^ = comienzo de línea
 
 echo		Escribe algo en un canal de output
 		echo "string" escribe 'string' en la pantalla
@@ -98,10 +104,22 @@ cat /proc/interrupts
 
 ------------------------------------------------------------------
 
-fdisk
+LVM
 
+fdisk
+pvcreate	Physical volume create
+vgcreate	Volume group create
+lvcreate	Logical volume create
 mkfs		Make file system
 mkfs.[distintos tipos]
+
+vgextend
+vgrename
+
+lvextend
+lvrename
+
+resize2fs	Resize a filesystems (ya con formato) desmontados
 
 lsblk		List blocks
 	-f	Muestra extension (ej: ext3)
@@ -109,7 +127,40 @@ lsblk		List blocks
 
 ------------------------------------------------------------------
 
--y		Responder sí a preguntas
--i		Ignorar mayúsculas y minúsculas
--r		Recursivo
--f		Forzar
+Procesos
+
+top		Procesos
+ps		Process snapshot
+	-e	Todos los procesos
+	-f	Formato
+jobs		Procesos de la consola en la que se escribe
+fg %[id de jobs]	Vuelvo al proceso
+
+ctrl Z		Poner proceso a correr asincrónicamente
+		Devuelve control de consola
+
+------------------------------------------------------------------
+
+Usuarios
+
+useradd [nombre]	- Agregar usuario
+	-m -> Crea home por defecto (/home/[nombre])
+	-d -> Crea home tomando parámetro (-d [path])
+	-G -> Asigna a grupo por nombre
+	-g -> Asigna a grupo por gid
+	-c -> Comentario (-c "Vote por El Donaldo")
+passwd [nombre]		- Asignar contraseña
+userdel [nombre]	- Borrar usuario
+login [nombre]		- Loguear como [nombre], requiere sudo
+logout			- Desloguear
+groups			- Lista los grupos en el que está el usuario
+usermod			- Modificar usuario, recibe los mismos comandos que useradd
+useradd [nombre] && sleep 15m && usermod --lock [nombre]
+id			- Devuelve todos los id del usuario
+chown			- Cambiar owner
+
+groupadd		- Agregar grupo
+groupmod		- Modificar grupo
+groupdel		- Borrar grupo
+gpasswd                 - Administrar /etc/group y /etc/shadow
+			- Trabaja con los parámetros de add, mod y del
