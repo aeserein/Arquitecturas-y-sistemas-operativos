@@ -1,9 +1,25 @@
 6 - MEMORIA
 
-Concepto de volatilidad
-Memtest
-Micros caros y baratos
-Lectura adyacente
+Von Neumann -> Primero en usar almacenamiento en memoria en una computadora
+Lectura adyacente/secuencial -> La lectura tiende a ser lineal
+Lectura localizada -> La lectura tiende a ser cercana a X, pero no lineal
+
+Tipos de memorias
+	Registros de CPU		|  Más caro, más rápido, menos capacidad
+	Caché				|  .
+	RAM				|  .
+	Discos				|  .
+	Almacenamiento externo		|  Más barato, más lento, más capacidad
+Registros de CPU	-> Guarda instrucciones recientemente ejecutadas
+			-> Misma velocidade que la ejecución del CPU
+Memoria caché		-> Nexo caché entre los registros y la ram
+			-> Casi misma velocidad que CPU
+			-> Cache L1/L2/L3, sobre la madre
+RAM			-> Chips con 4 tipos de circuitos (energía, datos, L/E, direcciones)
+Discos duros		-> No volátil
+			-> Mucho más lento y más capacidad
+			-> No se puede correr sobre ellos
+			-> Trabaja magnetizando slots
 
 Caro y volátil
  - Cache L1 - Viene en el microprocesador, más rapido
@@ -14,14 +30,28 @@ Caro y volátil
  - Disco
 Barato y estable
 
-Especificaciones de cache = rendimiento de procesador
 Cada nivel cachea lo que se lee
-Se busca en cada cache de arriba hacia abajo
-Pulsos -> binario -> a disco
-fdisk -> escritra sobre el centor del disco. 4 punteros
+Concepto de volatilidad
+Memtest
+Micros caros y baratos
+Especificaciones de cache = rendimiento de procesador
+Se busca en cada cache de arriba hacia abaj
 
-Raid 1 = backup 1:1 por hardware
-Raid 0 = backup de a partes
+Memoria virtual -> No necesitar pasar todo un programa a memoria
+		-> Hacerlo a medida que se ejecuta
+Regiones en memoria virtual de un programa (abstracción de la memoria real)
+
+Particiones	-> 3 motivos, encapsulación, formato y limitación de uso
+		-> Primarias y extendidas
+
+Sistemas de archivos
+
+RAID (Redundant Array of Independent Disks)
+	-> Para problemas con espacio o si se rompe un disco
+	-> Múltiples discos trabajan como si fuesen una unidad
+Raid 0 = Dos discos (o más) fusionados en un solo
+Raid 1 = Mirroring. Backup 1:1 por hardware
+Raid 5 = 3 discos, 2 (o más) para Raid 0, el último (siempre 1) para mirroring
 Raid 10 = Raid 0, con raids 1 anidados
 Raid 01 = Raid 1, con raids 0 anidados
 
@@ -88,26 +118,48 @@ Se localizan accesos a periféricos
 Es el primer proceso que se carga -> luego el SO
 
 2. Bios -> Bootloader
-Se elige el sistema operativo (o grub) en el centro del disco
+Master boot record 512 bytes
+	2B número mágico
+	64B tabla de particiones
+	446B bootloader
+Bootloader inicia el sistema operativo en el centro del disco
+	Grub o Lilo
+	Lilo limitado
+	Grub cantidad infinita, corre algo desde la red, se puede configurar por consola
 4 particiones primarias
 Bootloader = partición marcada como boot
 Grub -> programa que apunte a distintas secciones del disco y correr lo quue haya ahí (particiones extendidas, no primarias)
-El bootloader carga ese gestor de arranque
 
 3. Bios -> Bootloader -> Kernel
+
 Kernel = interfaz del SO para el hardware
+Gestiona todas las tareas con el hardware al nivel más bajo
+Monolítico, modular o híbrido
+Etapa de carga y ejecución
 Interacción de componentes internos y periféricos
 Pone en memoria las estructuras de control del SO
 Carga en memoria el SO y corre init (PID 0)
 
 4. Bios -> Bootloader -> Kernel -> Init
+Definición de proceso (regiones, tablas de control y datos, etc)
+Procesos de usuario y kernel (demonio?)
 Init por debajo de todos los demás procesos
+Determina qué se pone y se saca de memoria
 Se transforma en swapper
 Init pasa a ser PID 1
 
 Promesa -> Mandar un proceso a correr y recibirlo con otro proceso
 Proceso zombie (desreferenciado, ocupando espacio, inaccesible)
 Proceso parado (suspendido, esperando señal o prioridad)
+
+Atributos
+	PID
+	PPID
+	GID, UID (del que creó el proceso)
+	EGID, EUID (del que lo corre)
+	TTY, Uptime, recursos y demás
+fork y exec
+Estados
 
 ------------------------------------------------------------------------------------
 
@@ -117,6 +169,7 @@ Proceso parado (suspendido, esperando señal o prioridad)
 [dueño][grupo][resto]
 Directorios empiezan con d (Ej: drwxr-xr-x)
 Para archivos, la d es un guión (Ej: -rw-rw-r--)
+Archivos especiales con letra s ((Ej: srw-r--r--)
 
 Crear usuario
 	useradd [nombre]
@@ -143,8 +196,12 @@ Todos los usuarios tienen grupo. Si no se le asigna, tiene un grupo que es el us
 /etc/passwd	-> Usuarios
 /etc/group	-> Grupos
 /etc/shadow	-> encriptado imposible de descriptar
+/etc/sudoers
 Permisos para otros usuarios
 . Al principio del nombre para ocultar en directorio
+
+Sticky bit -> solo el dueño puede borrarlo
+setuid
 
 ------------------------------------------------------------------------------------
 
@@ -156,16 +213,43 @@ Encriptación por una clave
 	-> Puedo verificar si está bien encriptado
 	-> No puedo desencriptarlo
 	-> Solo el destinatario puede
-
-HTTP, FTP y SSH
+Conmutación
+7 capas
+	Aplicación (HTTP, FTP, SMTP, etc)
+	* Presentación
+	* Sesión
+	Transporte (TCP UDP)
+	Red
+	Link/datos
+	Física
+Cliente-server
+P2P
+Protocolos con o sin estado
 
 HTTP
-	POST -> Escribir, encriptado
-	GET  -> Pedir datos
-	<tag>Dato</fin de tag>
-	Código client side y server side
-		-> Pueden estar en el mismo archivo
-	Hipertexto -> Texto que puede correr cosas
+http://		www.dominio.com:8080	/pagina/archivo.php	?a=1&b=2
+Protocolo	host		puerto	path			consulta
+	POST -> Escribir
+	GET  -> Pedir datos, puede pasar datos por url
+	PUT  -> Actualizar
+	DELETE -> Borrar
+Códigos 2xx -> Éxito al hacer algo
+Códigos 3xx -> Se requiere de alguna otra acción
+Códigos 4xx -> Error en el pedido
+Códigos 5xx -> Error en el server
+<tag>Dato</fin de tag>
+Código client side y server side
+	-> Pueden estar en el mismo archivo
+Hipertexto -> Texto que puede correr cosas
+
+FTP
+	Puertos 20 (datos) y 21 (control)
+	Por browser, consola o interfaz
+	La parte de chucks y hashes
+
+SSH
+	Secure Shell
+	Acceso remoto, transferencia más segura y comandos
 
 ------------------------------------------------------------------------------------
 
@@ -174,6 +258,8 @@ HTTP
 Operadores de Gogle
 exploit-db.com		Vulnerabilidades en versiones de db viejas
 ARP (Adress Resolution Protocol)
+	Encuentra direcciones MAC por IP, por los cache de cada máquina
+	ARP spoofing
 SQL Injection		Correr comandos mediante datos ingresados
 sqlmap.org		Programa para detectar vulnerabilidades SQL
 OSINT			Búsqueda de personas en sitios públicos
@@ -186,3 +272,5 @@ X - GITHUB
 2 - Fetch + pull + push para actualizar repositorios forkeados a lo que actualiza el original
 3 - Branch y merge. Crear y mezclar dentro del mismo repositorio
 4 - merge en forma de Y
+
+------------------------------------------------------------------------------------
